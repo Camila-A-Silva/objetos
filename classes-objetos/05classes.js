@@ -1,11 +1,11 @@
-// Classe é uma definição. Como um objeto deve ser.
+/* CLASSE: É o molde ou "planta baixa". Define quais atributos e comportamentos 
+    um objeto  */
 class Senai{
-    codigo;
-    cidade;
+    
     // Dentro de uma classe não precisa a palavra function
 
     descreverEscola() {
-        
+        // O 'this' refere-se à instância específica que está executando o código
         console.log(`O código ${this.codigo} pertence a Escola SENAI de ${this.cidade}.`)
     }
 }
