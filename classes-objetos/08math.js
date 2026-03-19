@@ -73,3 +73,5 @@ const gerarNumeroAleatorioR = (min = 1, max = 15) => {
 // Exemplo de uso
 console.log(gerarNumeroAleatorioR()); // Gera um número entre 1 e 15
 console.log(gerarNumeroAleatorioR(10,15)); // Gera um número entre 5 e 10
+
+

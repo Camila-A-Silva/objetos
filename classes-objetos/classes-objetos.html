@@ -5,10 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classes Objetos</title>
 
-    <script src="./08math.js"></script>
+    <!-- <script src="./08math.js"></script> -->
+     
+<style>
+
+    
+    .sorteio{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 25px;
+        height: 100vh;
+    }
+</style>
 
 </head>
+
 <body>
+
+    <div class="sorteio">
+
+        <h1>Sorteador de Número</h1>
+
+        <div class="sorteio__inputs">
+            <form action="sorteio__form">
+
+                <label for="min">Valor Mínimo:</label>
+                <input class="sorteio__input--min" type="text" name="min">
+
+                <label for="min">Valor Máximo:</label>
+                <input class="sorteio__input--max" type="text" name="max">
+
+                <div class="sorteio__acoes">
+
+                    <input class="sorteio__botao-sortear" type="submit" value="Sorteado">
+                    <input class="sorteio__botao--reset" type="reset" value="Novo Sorteio">
+
+                </div>
+            </form>
+
+            <div class="sorteio__resultado">
+                <p class="sorteio__texto--resultado"></p>
     
+            </div>
+        
+        </div>
+
+    </div>
+
+        <script>
+            // Selação dos elementos
+            const form = document.querySelector('.sorteio__form');
+            const inputMin = document.querySelector('.sorteio__input--min');
+            const inputMax = document.querySelector('.sorteio__input--max');
+            const resultado = document.querySelector('.sorteio__texto--resultado');
+
+            
+            // Evento do formulário
+            form.addEventListener('submit', (event) => {
+                event.preventDefault() // Controle e recarregamento
+
+
+                // O trim serve para remover espaços
+                const min = inputMin.value.trim();
+                const max = inputMax.value.trim();
+
+                // Validação simples
+                if (min === '' || max === '') {
+                    resultado.textContent = 'Preencha os dois campos.';
+                    return;
+                }
+
+                const numeroMin = Number(min);
+                const numeroMax = Number(max);
+
+                if (isNaN(numeroMin) || isNaN(numeroMax)) {
+                    resultado.textContent = 'Digite apenas número';
+                    return;
+                }
+
+                if (numeroMin > numeroMax) {
+                    resultado.textContent = 'O mínimo não pode ser maior que o máximo.';
+                    return;
+                }
+
+                // Lógica do sorteio (versão simplificada)
+                const numeroSorteado = Math.floor(Math.random() = (numeroMax - numeroMin + 1)) + numeroMin;
+
+                resultado.textContent = `Número sorteado: ${numeroSorteado}`;
+
+            });
+
+
+        </script>
+
+
 </body>
 </html>
