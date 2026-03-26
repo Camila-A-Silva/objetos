@@ -23,9 +23,28 @@ const atualizarvalorSlider = () => {
     document.querySelector('.intervalo__valor--max').textContent = max;
 };
 
+const validarIntervalo = () => {
+    const min = Number(sliderMin.value);
+    const max = Number(sliderMax.value);
+
+    if (min > max) {
+        min = max;
+    }
+
+    // Exibir o valor de slider na interface
+    document.querySelector('.intervalo__valor--min').textContent = min;
+    document.querySelector('.intervalo__valor--max').textContent = max;
+
+};
+
 // Evento para atualizar o valor em tempo real
-sliderMin.addEventListener('input', atualizarvalorSlider);
-sliderMax.addEventListener('input', atualizarvalorSlider);
+sliderMin.addEventListener('input', validarIntervalo);
+sliderMax.addEventListener('input', validarIntervalo);
+
+
+// Evento para atualizar o valor em tempo real
+// sliderMin.addEventListener('input', atualizarvalorSlider);
+// sliderMax.addEventListener('input', atualizarvalorSlider);
 
 // Incializar interface com valores atuais
 atualizarvalorSlider();
@@ -78,7 +97,7 @@ botaoSortear.addEventListener('click', () => {
     const max = Number(sliderMax.value);
 
     if (min > max) {
-        mensagem.textContent = 'O valor mínimo deve ser menor ou igual ao valor máximo'
+        mensagem.textContent = 'O valor mínimo deve ser menor ou igual ao valor máximo, Ajuste automático aplicado.'
         return;
     }
 
